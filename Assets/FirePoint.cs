@@ -15,6 +15,7 @@ public class FirePoint : MonoBehaviour
     public float bulletSpeed = 100f;
     NewInputController controller;
     Vector2 lookPosition;
+    public GameObject playership;
 
     // Start is called before the first frame update
     void Awake()
@@ -50,7 +51,7 @@ public class FirePoint : MonoBehaviour
             if (Time.time > fireRate + lastShot)
             {
                 GameObject clone = Instantiate(bullet1, this.transform.position, this.transform.rotation * Quaternion.Euler(0, 0, 90f));
-                // Physics2D.IgnoreCollision(clone.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
+                Physics2D.IgnoreCollision(clone.GetComponent<Collider2D>(), playership.GetComponent<Collider2D>());
                 shooter = clone.GetComponent<Rigidbody2D>();
                 shooter.AddForce(new Vector2(lookPosition.x,lookPosition.y) * bulletSpeed, ForceMode2D.Impulse);
                 Destroy(clone.gameObject, 1f);

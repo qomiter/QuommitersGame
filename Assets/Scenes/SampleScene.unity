@@ -505,6 +505,7 @@ MonoBehaviour:
   canShoot: 0
   shooter: {fileID: 8855816611044694215, guid: a1e8dc6c9a5cec74b8f041aeb2474656, type: 3}
   bulletSpeed: 40
+  playership: {fileID: 1634835939}
 --- !u!1 &1634835939 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 763103798805326493, guid: c740d03f00aa7a2408136342a7141e6c, type: 3}
