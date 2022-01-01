@@ -16,10 +16,13 @@ public class FirePoint : MonoBehaviour
     NewInputController controller;
     Vector2 lookPosition;
     public GameObject playership;
+    AudioSource errorSound;
+    public AudioClip errorSound2;
 
     // Start is called before the first frame update
     void Awake()
     {
+        errorSound = GetComponent<AudioSource>();
         player1 = GetComponent<Rigidbody2D>();
         controller = GetComponent<NewInputController>();
         playerActionsAsset = new TwinSticks2D();
@@ -46,8 +49,8 @@ public class FirePoint : MonoBehaviour
 
     public void DoFire(InputAction.CallbackContext obj)
     {
-        if (obj.performed == true)
-        {
+       // if (Mathf.Abs(lookPosition.x) >= 0.75f && Mathf.Abs(lookPosition.y) >= 0.75f)
+       // {
             if (Time.time > fireRate + lastShot)
             {
                 GameObject clone = Instantiate(bullet1, this.transform.position, this.transform.rotation * Quaternion.Euler(0, 0, 90f));
@@ -57,6 +60,10 @@ public class FirePoint : MonoBehaviour
                 Destroy(clone.gameObject, 1f);
                 lastShot = Time.time;
             }
-        }
+       // }
+       //lse
+       // {
+       //     errorSound.PlayOneShot(errorSound2);
+       // }
     }
 }
