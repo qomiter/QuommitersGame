@@ -29,16 +29,16 @@ public partial class @TwinSticks2D : IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Move"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""d6c0d6c1-c1b5-4b9a-ab46-25cfa1fa05d1"",
                     ""expectedControlType"": ""Analog"",
-                    ""processors"": ""Normalize(max=1)"",
+                    ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Look"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""2718b8c8-4965-4baa-8496-e6840c152749"",
                     ""expectedControlType"": ""Analog"",
                     ""processors"": ""Normalize(max=1)"",
