@@ -49,7 +49,7 @@ public class FirePoint : MonoBehaviour
 
     public void DoFire(InputAction.CallbackContext obj)
     {
-       // if (Mathf.Abs(lookPosition.x) >= 0.75f && Mathf.Abs(lookPosition.y) >= 0.75f)
+        //if (Mathf.Abs() >= 0.75f && Mathf.Abs(lookPosition.y) >= 0.75f)
        // {
             if (Time.time > fireRate + lastShot)
             {
