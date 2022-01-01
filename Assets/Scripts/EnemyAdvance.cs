@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class EnemyAdvance : MonoBehaviour
 {
-    public GameObject player1;  
-    
+    public GameObject player1;
+
     public float speed = 5.0f;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +25,12 @@ public class EnemyAdvance : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player1 != null)
-        transform.position =  Vector2.MoveTowards(transform.position, player1.transform.position, speed * Time.deltaTime);
+        if (player1 != null)
+        {
+            Quaternion rotation = Quaternion.LookRotation(player1.transform.position - transform.position, transform.TransformDirection(Vector3.forward * -1f));
+            if (player1 != null)
+                transform.position = Vector2.MoveTowards(transform.position, player1.transform.position, speed * Time.deltaTime);
+            transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
+        }
     }
 }
