@@ -6,28 +6,25 @@ using UnityEngine.InputSystem;
 public class NewInputController : MonoBehaviour
 {
     public TwinSticks2D playerActionsAsset;
-    public GameObject bullet1;
-    public float movementSpeed = 30f;
     public Rigidbody2D player1;
+    public float movementSpeed = 30f;
+    
     public bool spawned = false;
-    public Rigidbody2D shooter;
-    public float bulletSpeed = 100f;
+   
     private InputAction move;
     private InputAction look;
 
     Vector2 movementInput;
-    Vector2 lookPosition;
+    public Vector2 lookPosition;
     public Camera mainCamera;
     public Vector2 shootAngle;
     public float angleDeg = 0f;
-    public float fireRate = 0.5f;
-    public float lastShot = 0f;
-    public bool canShoot = false;
+
 
     // Start is called before the first frame update
     private void Awake()
     {
-        player1 = this.GetComponent<Rigidbody2D>();
+        player1 = GetComponent<Rigidbody2D>();
         playerActionsAsset = new TwinSticks2D();
         playerActionsAsset.Player.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
         playerActionsAsset.Player.Look.performed += ctx => lookPosition = ctx.ReadValue<Vector2>();
@@ -41,11 +38,6 @@ public class NewInputController : MonoBehaviour
     private void OnEnable()
     {
 
-
-        playerActionsAsset.Player.Fire.performed += DoFire;
-
-        playerActionsAsset.Player.Fire.Enable();
-
         look = playerActionsAsset.Player.Look;
         playerActionsAsset.Player.Look.Enable();
 
@@ -57,7 +49,6 @@ public class NewInputController : MonoBehaviour
 
     private void OnDisable()
     {
-        playerActionsAsset.Player.Fire.Disable();
 
         playerActionsAsset.Player.Look.Disable();
 
@@ -90,21 +81,7 @@ public class NewInputController : MonoBehaviour
 
     }
 
-    public void DoFire(InputAction.CallbackContext obj)
-    {
-        if (obj.performed == true)
-        {
-            if (Time.time > fireRate + lastShot)
-            {
-                GameObject clone = Instantiate(bullet1, this.transform.position + new Vector3(lookPosition.x, lookPosition.y, 0) * 0.5f, this.transform.rotation * Quaternion.Euler(0, 0, 90f));
-                Physics2D.IgnoreCollision(clone.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-                shooter = clone.GetComponent<Rigidbody2D>();
-                shooter.AddForce(new Vector3(lookPosition.x, lookPosition.y, 0) * bulletSpeed, ForceMode2D.Impulse);
-                Destroy(clone.gameObject, 1f);
-                lastShot = Time.time;
-            }
-        }
-    }
+
 
     // Update is called once per frame
     void Update()

@@ -32,7 +32,7 @@ public class CircleSpawner : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("SpawnObject", 0f, 0.5f);
+        InvokeRepeating("SpawnObject", 0f, 1f);
     }
 
 }
