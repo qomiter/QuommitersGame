@@ -36,3 +36,5 @@ sysinfo.txt
 *.apk
 *.unitypackage
 *.log
+Assets/WSATestCertificate.pfx
+Assets/WSATestCertificate.pfx.meta

@@ -591,9 +591,9 @@ PlayerSettings:
   metroPackageVersion: 1.0.0.0
   metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: DefaultCompany
-  metroCertificateIssuer: DefaultCompany
-  metroCertificateNotAfter: 80dab3f8250cd901
+  metroCertificateSubject: qomiter
+  metroCertificateIssuer: qomiter
+  metroCertificateNotAfter: 003f3f9735d4d901
   metroApplicationDescription: 2D_BuiltInRenderer
   wsaImages: {}
   metroTileShortName: TwinSticks2D
