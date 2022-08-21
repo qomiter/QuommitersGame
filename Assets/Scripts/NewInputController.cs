@@ -7,12 +7,6 @@ public class NewInputController : MonoBehaviour
 {
     public Rigidbody2D player1;
     public float movementSpeed = 30f;
-    public bool spawned = false;
-    public Vector2 lookPosition;
-    public Camera mainCamera;
-    public Vector2 shootAngle;
-    public float angleDeg = 0f;
-
 
     // Start is called before the first frame update
     private void Awake()
